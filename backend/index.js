@@ -13,8 +13,8 @@ app.use(function (req, res, next) {
 });
 
 
-app.get('/deezer', (req, res) => {
-    axios.get('https://api.deezer.com/genre/16/artists').then((result) => {
+app.get('/genre', (req, res) => {
+    axios.get('https://api.deezer.com/genre').then((result) => {
         res.status(200).send(result.data);
     }, (error) => {
         res.status(400).send(error);
