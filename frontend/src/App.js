@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Button } from 'antd';
+import Home from './Home';
 import './App.css';
 
 class App extends Component {
 
   componentDidMount() {
-    axios.get('https://api.deezer.com/genre/16/artists').then((result) => {
-      console.log(result);
+    axios.get('http://localhost:8080/genre').then(({data}) => {
+      console.log(data);
     }, (error) => {
       console.log(error);
     });
@@ -16,8 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Button type="primary">Buttons</Button>
-
+        <Home />
       </div>
     );
   }
