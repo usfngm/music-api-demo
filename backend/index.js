@@ -15,7 +15,16 @@ app.use(function (req, res, next) {
 
 app.get('/genre', (req, res) => {
     axios.get('https://api.deezer.com/genre').then((result) => {
-        res.status(200).send(result.data);
+        res.status(200).send(result.data.data);
+    }, (error) => {
+        res.status(400).send(error);
+    })
+})
+
+app.get('/genre_artists', (req, res) => {
+    var gID = req.query.id;
+    axios.get('https://api.deezer.com/genre/' + gID + '/artists').then((result) => {
+        res.status(200).send(result.data.data);
     }, (error) => {
         res.status(400).send(error);
     })
