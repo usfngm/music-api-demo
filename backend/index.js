@@ -1,9 +1,7 @@
 const express = require('express')
-
-// Create the express app
-const app = express()
-
 const axios = require('axios');
+
+const app = express()
 
 // Allow all Cross-Origin requests
 app.use(function (req, res, next) {
@@ -31,16 +29,6 @@ app.get('/genre_artists', (req, res) => {
 })
 
 
-// Error handlers
-app.use(function fourOhFourHandler(req, res) {
-    res.status(404).send();
-})
-app.use(function fiveHundredHandler(err, req, res, next) {
-    console.error(err)
-    res.status(500).send()
-})
-
-// Start server
 app.listen(8080, function (err) {
     if (err) {
         return console.error(err)
